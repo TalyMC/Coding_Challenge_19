@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TourCard from "./tourCard";
 
-const Gallery = ({ tour, setTours, onRemove }) => {
+const Gallery = ({ tours, setTours, onRemove }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -36,7 +36,7 @@ const Gallery = ({ tour, setTours, onRemove }) => {
   }
 
   // If there are no tours left, display a message
-  if (tour.length === 0) {
+  if (tours.length === 0) {
     return (
       <div className="no-tours">
         <h2>No tours remaining</h2>
@@ -49,7 +49,7 @@ const Gallery = ({ tour, setTours, onRemove }) => {
     <section className="tour-gallery">
       <h1>Our Tours</h1>
       <div className="tour-list">
-        {tour.map((tourItem) => (
+        {tours.map((tourItem) => (
           <TourCard key={tourItem.id} {...tourItem} onRemove={onRemove} />
         ))}
       </div>
